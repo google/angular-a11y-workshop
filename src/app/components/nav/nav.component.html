@@ -1,0 +1,46 @@
+<!--
+    TODO(bogusred): Create containers and routes for the pages.
+    TODO(bogusred): Selected/active state
+    TODO(bogusred): Check this against the aria specs
+    -->
+<header>
+
+  <!--
+     TODO(bogusred): ensure not focusable on desktop.
+  -->
+  <button aria-label="Open navigation" class="menu-button" (click)="isNavShown = !isNavShown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+    </svg>
+  </button>
+
+
+  <h1 class="logo">Cat-alog</h1>
+
+  <nav [attr.aria-expanded]="isNavShown">
+    <ul class="main-level">
+      <li aria-level="1">
+        <a routerLink="/" class="nav-item">Home</a>
+      </li>
+      <li aria-level="1">
+        <button
+          (click)="isCatalogShown = !isCatalogShown"
+          [attr.aria-expanded]="isCatalogShown"
+          aria-controls="catalog-nested-nav"
+          class="nav-item">Cats</button>
+        <ul class="nested" [hidden]="!isCatalogShown" id="catalog-nested-nav">
+          <li aria-level="2">
+            <a routerLink="/catalog/browse" class="nav-item">Browse</a>
+          </li>
+          <li aria-level="2">
+            <a routerLink="/catalog/search" class="nav-item">Search</a>
+          </li>
+        </ul>
+      </li>
+      <li aria-level="1">
+        <a routerLink="/about" class="nav-item">About</a>
+      </li>
+    </ul>
+  </nav>
+</header>

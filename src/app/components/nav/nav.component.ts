@@ -14,21 +14,27 @@
  * limitations under the License.
  */
 
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {Component, OnInit, HostListener} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { NavComponent } from './components/nav/nav.component';
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+@Component({
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
-export class AppModule { }
+export class NavComponent implements OnInit {
+  public isCatalogShown = false;
+  public isNavShown = false;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event) {
+    // Force navigation to always be accessible on larger viewports.
+    if (event.target.innerWidth >= 600) {
+      this.isNavShown = true;
+    }
+  }
+}
