@@ -29,6 +29,7 @@ header {
   color: white;
   padding: .7rem 1rem;
   display: block;
+  text-decoration: none;
 }
 
 nav {
@@ -45,7 +46,7 @@ nav ul li + li {
 
 /* Desktop/Tablet styles */
 @media only screen and (min-width: 600px) {
-  nav {
+  nav, nav[aria-expanded="true"] {
     display: inline-block;
   }
 

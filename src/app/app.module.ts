@@ -16,17 +16,37 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
+import { HomeComponent } from './containers/home/home.component';
+import { CatalogBrowseComponent } from './containers/catalog-browse/catalog-browse.component';
+import { CatalogSearchComponent } from './containers/catalog-search/catalog-search.component';
+import { AboutComponent } from './containers/about/about.component';
+
+
+const appRoutes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'catalog/browse', component: CatalogBrowseComponent},
+  {path: 'catalog/search', component: CatalogSearchComponent},
+  {path: 'about', component: AboutComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'}
+];
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent,
+    CatalogBrowseComponent,
+    CatalogSearchComponent,
+    AboutComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
