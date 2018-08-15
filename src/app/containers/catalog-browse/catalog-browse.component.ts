@@ -15,6 +15,8 @@
  */
 
 import { Component, OnInit } from '@angular/core';
+import {CatsService} from '../../services/cats.service';
+import {CatCatalog, Cat} from '../../cat';
 
 @Component({
   selector: 'app-catalog-browse',
@@ -22,8 +24,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalog-browse.component.css']
 })
 export class CatalogBrowseComponent implements OnInit {
-
-  constructor() { }
+  public catsArray: Cat[] = [];
+  constructor(private cats: CatsService) {
+    this.cats.cats$.subscribe((catalogObj: CatCatalog) => {
+      this.catsArray = Object.keys(catalogObj).map((k) => catalogObj[k]);
+    });
+  }
 
   ngOnInit() {
   }

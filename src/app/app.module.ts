@@ -24,6 +24,7 @@ import { HomeComponent } from './containers/home/home.component';
 import { CatalogBrowseComponent } from './containers/catalog-browse/catalog-browse.component';
 import { CatalogSearchComponent } from './containers/catalog-search/catalog-search.component';
 import { AboutComponent } from './containers/about/about.component';
+import {CommonModule} from "@angular/common";
 
 
 const appRoutes: Routes = [
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     AboutComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],

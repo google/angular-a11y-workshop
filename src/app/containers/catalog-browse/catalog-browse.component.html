@@ -1,3 +1,9 @@
-<p>
-  catalog-browse works!
-</p>
+<h1>All the cats are below.</h1>
+
+<ul>
+  <li *ngFor="let cat of catsArray">
+    {{cat.name}}
+  </li>
+</ul>
+
+<button>Add new cat</button>
