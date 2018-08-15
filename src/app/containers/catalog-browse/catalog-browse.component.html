@@ -1,9 +1,18 @@
 <h1>All the cats are below.</h1>
 
-<ul>
-  <li *ngFor="let cat of catsArray">
-    {{cat.name}}
+<ul class="cards">
+  <li *ngFor="let cat of catsArray" class="cards__item">
+    <figure *ngIf="cat.imgUrl">
+      <img [src]="cat.imgUrl" alt="">
+      <figcaption>Photo by {{cat.imgCredit}}</figcaption>
+    </figure>
+    <article class="cards__article">
+      <h2>{{cat.name}}</h2>
+      <span class="breed">{{cat.breed}}</span>
+      <p>{{cat.description}}</p>
+    </article>
   </li>
 </ul>
 
+<!-- TODO(): Create page for adding cats -->
 <button>Add new cat</button>

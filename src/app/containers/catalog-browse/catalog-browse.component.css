@@ -1,0 +1,46 @@
+.cards {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+figure { width: 100%; margin: 0;}
+
+figcaption {
+  padding: .5rem 1rem;
+  font-size: .6rem;
+  font-style: italic;
+  color: #999;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
+.breed {
+  font-size: .6rem;
+  font-style: italic;
+}
+
+.cards__item {
+  border: solid 1px #ccc;
+  margin: 1rem;
+  width: 100%;
+}
+
+.cards__item img {
+  width: 100%;
+}
+
+.cards__article {
+  padding: 0 1rem;
+}
+
+/* Desktop/Tablet styles */
+@media only screen and (min-width: 600px) {
+  .cards__item {
+    width: 300px;
+  }
+}
