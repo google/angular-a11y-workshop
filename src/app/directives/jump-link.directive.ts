@@ -22,7 +22,7 @@ import {Directive, Input, HostListener} from '@angular/core';
   selector: '[jumpLink]'
 })
 export class JumpLinkDirective {
-  @Input() elementId: string;
+  @Input('jumpLink') elementId: string;
   constructor() { }
 
   @HostListener('click')
