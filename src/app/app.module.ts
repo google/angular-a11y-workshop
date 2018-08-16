@@ -26,12 +26,15 @@ import { CatalogSearchComponent } from './containers/catalog-search/catalog-sear
 import { AboutComponent } from './containers/about/about.component';
 import {CommonModule} from "@angular/common";
 import { JumpLinkDirective } from './directives/jump-link.directive';
+import { AddCatComponent } from './containers/add-cat/add-cat.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'catalog/browse', component: CatalogBrowseComponent},
   {path: 'catalog/search', component: CatalogSearchComponent},
+  {path: 'catalog/add', component: AddCatComponent},
   {path: 'about', component: AboutComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
@@ -45,11 +48,13 @@ const appRoutes: Routes = [
     CatalogBrowseComponent,
     CatalogSearchComponent,
     AboutComponent,
-    JumpLinkDirective
+    JumpLinkDirective,
+    AddCatComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

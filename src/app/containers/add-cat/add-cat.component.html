@@ -1,0 +1,64 @@
+<h1>Add a cat!</h1>
+
+<!--
+  WAI-ARIA recommends several strategies for listing errors.
+  See https://www.w3.org/WAI/tutorials/forms/notifications/#listing-errors
+
+  TODO:
+  - x/check for success/error - add this as item to fix in exercise to add x/check
+  - show errors inline
+-->
+
+
+<form [formGroup]="catForm" (ngSubmit)="onSubmit(catForm)">
+  <div role="alert" *ngIf="getErrorCount() > 0 && isSubmitDirty">
+    <h3>There are {{getErrorCount()}} errors in this form</h3>
+    <ul>
+      <li *ngIf="catForm.controls['name'].hasError('required')">
+        <a [routerLink]="['.']" jumpLink="name" id="name-error">
+          The <b>name</b> field is empty; it is a required field and must be filled in.
+        </a>
+      </li>
+      <li *ngIf="catForm.controls['breed'].hasError('required')">
+        <a [routerLink]="['.']" jumpLink="breed" id="breed-error">
+          The <b>breed</b> field is empty; it is a required field and must be filled in.
+        </a>
+      </li>
+      <li *ngIf="catForm.controls['description'].hasError('required')">
+        <a [routerLink]="['.']" jumpLink="description" id="description-error">
+          The <b>description</b> field is empty; it is a required field and must be filled in.
+        </a>
+      </li>
+    </ul>
+  </div>
+  <ul>
+    <li>
+      <label for="name">Cat Name</label><br>
+      <input type="text" placeholder="Whiskers"
+             formControlName="name" id="name" required aria-describedby="name-error">
+    </li>
+    <li>
+      <label for="breed">Cat Breed</label><br>
+      <input type="text" placeholder="Persian Cat"
+             formControlName="breed" id="breed" required aria-describedby="breed-error">
+    </li>
+    <li>
+      <label for="img-url">URL to a picture of your cat</label><br>
+      <input type="url" placeholder="http://foo.bar/bat.jpg"
+             formControlName="imgUrl" id="img-url">
+    </li>
+    <li>
+      <label for="img-credit">Attribution</label><br>
+      <textarea placeholder="Miško Hevery, Twitter: @mhevery"
+                formControlName="imgCredit" id="img-credit"></textarea>
+    </li>
+    <li>
+      <label for="description">Description</label><br>
+      <textarea placeholder="She's soft and sweet"
+                formControlName="description" id="description" required aria-describedby="description-error"></textarea>
+    </li>
+  </ul>
+
+  <button type="submit" class="button">Save</button>
+</form>
+

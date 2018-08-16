@@ -1,0 +1,33 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+input, textarea {
+  border: solid 1px #ccc;
+  padding: .7rem;
+  width: 80%;
+}
+
+.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+.ng-touched.ng-valid {
+  border-color: green;
+}
+
+/* Desktop/Tablet styles */
+@media only screen and (min-width: 600px) {
+
+  input, textarea {
+    max-width: 70rem;
+  }
+}
+
+

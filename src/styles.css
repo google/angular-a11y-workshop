@@ -13,6 +13,19 @@ button {
   font-size: 1rem;
 }
 
+input, textarea {
+  font-size: 1.3rem;
+}
+
+.button {
+  color: #75F4F4;
+  background-color: #311847;
+  padding: 1rem 2rem;
+  font-weight: 400;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
 main {
   margin: 1rem;
 }

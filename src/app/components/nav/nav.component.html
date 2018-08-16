@@ -1,5 +1,4 @@
 <!--
-    TODO(bogusred): Create containers and routes for the pages.
     TODO(bogusred): Selected/active state
     TODO(bogusred): Check this against the aria specs
     -->
@@ -18,7 +17,9 @@
 
   <h1 class="logo">Cat-alog</h1>
 
-  <nav [attr.aria-expanded]="isNavShown">
+  <!-- Label site wide navigation with aria-label.
+  Don't include "Navigation" or it will read "navigation" twice. -->
+  <nav [attr.aria-expanded]="isNavShown" aria-label="Site">
     <ul class="main-level">
       <li aria-level="1">
         <a routerLink="/home" class="nav-item">Home</a>
@@ -35,6 +36,9 @@
           </li>
           <li aria-level="2">
             <a routerLink="/catalog/search" class="nav-item">Search</a>
+          </li>
+          <li aria-level="2">
+            <a routerLink="/catalog/add" class="nav-item">Add</a>
           </li>
         </ul>
       </li>
