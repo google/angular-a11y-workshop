@@ -25,6 +25,7 @@ import { CatalogBrowseComponent } from './containers/catalog-browse/catalog-brow
 import { CatalogSearchComponent } from './containers/catalog-search/catalog-search.component';
 import { AboutComponent } from './containers/about/about.component';
 import {CommonModule} from "@angular/common";
+import { JumpLinkDirective } from './directives/jump-link.directive';
 
 
 const appRoutes: Routes = [
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     HomeComponent,
     CatalogBrowseComponent,
     CatalogSearchComponent,
-    AboutComponent
+    AboutComponent,
+    JumpLinkDirective
   ],
   imports: [
     CommonModule,
