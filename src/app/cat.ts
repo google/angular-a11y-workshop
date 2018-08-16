@@ -23,5 +23,12 @@ export const InitialCatData: CatCatalog = {
     description: 'The Maine Coon is one of the largest domesticated breeds of cat. It has a distinctive physical appearance and valuable hunting skills.',
     imgCredit: 'Jason Barbour and Ashley Barbour. Instagram: @mostly_kitten_pics',
     imgUrl: '/assets/photos/kahless.png'
+  },
+  3: {
+    name: 'Peludo',
+    breed: 'Mixed',
+    description: 'The adorable cat of ngColombia\'s founder.',
+    imgCredit: 'Juan Herrera. Twitter: @jdjuan',
+    imgUrl: '/assets/photos/peludo.jpg'
   }
 };
