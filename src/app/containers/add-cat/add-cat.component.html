@@ -35,12 +35,16 @@
     <li>
       <label for="name">Cat Name</label><br>
       <input type="text" placeholder="Whiskers"
-             formControlName="name" id="name" required aria-describedby="name-error">
+             formControlName="name" id="name" required
+             aria-describedby="name-error"
+             [attr.aria-invalid]="catForm.controls['name'].hasError('required')">
     </li>
     <li>
       <label for="breed">Cat Breed</label><br>
       <input type="text" placeholder="Persian Cat"
-             formControlName="breed" id="breed" required aria-describedby="breed-error">
+             formControlName="breed" id="breed" required
+             aria-describedby="breed-error"
+             [attr.aria-invalid]="catForm.controls['breed'].hasError('required')">
     </li>
     <li>
       <label for="img-url">URL to a picture of your cat</label><br>
@@ -55,7 +59,9 @@
     <li>
       <label for="description">Description</label><br>
       <textarea placeholder="She's soft and sweet"
-                formControlName="description" id="description" required aria-describedby="description-error"></textarea>
+                formControlName="description" id="description" required
+                aria-describedby="description-error"
+                [attr.aria-invalid]="catForm.controls['description'].hasError('required')"></textarea>
     </li>
   </ul>
 
