@@ -28,12 +28,14 @@ import {CommonModule} from "@angular/common";
 import { JumpLinkDirective } from './directives/jump-link.directive';
 import { AddCatComponent } from './containers/add-cat/add-cat.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { AddCatSuccessComponent } from './containers/add-cat-success/add-cat-success.component';
 
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'catalog/browse', component: CatalogBrowseComponent},
   {path: 'catalog/search', component: CatalogSearchComponent},
+  {path: 'catalog/add-success', component: AddCatSuccessComponent},
   {path: 'catalog/add', component: AddCatComponent},
   {path: 'about', component: AboutComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
@@ -49,7 +51,8 @@ const appRoutes: Routes = [
     CatalogSearchComponent,
     AboutComponent,
     JumpLinkDirective,
-    AddCatComponent
+    AddCatComponent,
+    AddCatSuccessComponent
   ],
   imports: [
     CommonModule,
