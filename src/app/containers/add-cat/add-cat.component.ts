@@ -18,7 +18,6 @@ import { Component, OnInit } from '@angular/core';
 import {CatsService} from '../../services/cats.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-cat',
@@ -30,10 +29,9 @@ export class AddCatComponent implements OnInit {
   // True when the user has attempted to submit the form.
   isSubmitDirty = false;
   constructor(private cats: CatsService, private fb: FormBuilder,
-              private router: Router, private title: Title) { }
+              private router: Router) { }
 
   ngOnInit() {
-    this.title.setTitle('Add Cat');
     this.catForm = this.fb.group({
       name: ['', Validators.required],
       breed: ['', Validators.required],

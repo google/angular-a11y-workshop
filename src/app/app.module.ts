@@ -32,12 +32,12 @@ import { AddCatSuccessComponent } from './containers/add-cat-success/add-cat-suc
 
 
 const appRoutes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: 'catalog/browse', component: CatalogBrowseComponent},
-  {path: 'catalog/search', component: CatalogSearchComponent},
-  {path: 'catalog/add-success', component: AddCatSuccessComponent},
-  {path: 'catalog/add', component: AddCatComponent},
-  {path: 'about', component: AboutComponent},
+  {path: 'home', component: HomeComponent, data: {title: 'Welcome to the Cat-alog'}},
+  {path: 'catalog/browse', component: CatalogBrowseComponent, data: {title: 'Here are all the cats'}},
+  {path: 'catalog/search', component: CatalogSearchComponent, data: {title: 'Search the Cat-alog'}},
+  {path: 'catalog/add-success', component: AddCatSuccessComponent, data: {title: 'Your cat has been saved'}},
+  {path: 'catalog/add', component: AddCatComponent, data: {title: 'Add a cat'}},
+  {path: 'about', component: AboutComponent, data: {title: 'About'}},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 
