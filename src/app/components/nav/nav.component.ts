@@ -14,7 +14,11 @@
  * limitations under the License.
  */
 
-import {Component, OnInit, HostListener} from '@angular/core';
+import {Component, OnInit, HostListener, ElementRef} from '@angular/core';
+import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import {map, filter} from 'rxjs/internal/operators';
+
+const BREAKPOINT = 600;
 
 @Component({
   selector: 'app-nav',
@@ -24,17 +28,51 @@ import {Component, OnInit, HostListener} from '@angular/core';
 export class NavComponent implements OnInit {
   public isCatalogShown = false;
   public isNavShown = false;
+  private activeUrl = '';
+  private isSmallViewport = true;
 
-  constructor() { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .pipe(map(() => this.activatedRoute))
+      .pipe(map((route) => {
+        while (route.firstChild) route = route.firstChild;
+        return route;
+      }))
+      .pipe(filter((route) => route.outlet === 'primary'))
+      .subscribe((activatedRoute) => {
+        this.activeUrl = activatedRoute.snapshot['_routerState'].url;
+
+        // Close the navigation on mobile when a link is clicked.
+        if (this.isSmallViewport) {
+          this.isNavShown = false;
+        }
+        // Close the catalog sub-menu.
+        this.isCatalogShown = false;
+      });
   }
 
   @HostListener('window:resize', ['$event'])
   onWindowResize(event) {
     // Force navigation to always be accessible on larger viewports.
-    if (event.target.innerWidth >= 600) {
+    if (event.target.innerWidth >= BREAKPOINT) {
+      this.isSmallViewport = false;
       this.isNavShown = true;
+    } else {
+      this.isSmallViewport = true;
     }
+  }
+
+  // Mark the element as current page if it matches the current route.
+  // Note that this spoken feedback does not work with the
+  // Chromevox Chrome Extension but works with
+  // Android Talkback, JAWS and NVDA.
+  getDescribedBy(element: HTMLInputElement): string|null {
+    return (this.activeUrl == element.getAttribute('routerLink')) ?
+        // If null, the attribute won't be added. We don't want the attribute
+        // there without a value because that's invalid.
+        'current-page' : null;
   }
 }
