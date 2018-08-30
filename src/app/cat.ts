@@ -30,5 +30,12 @@ export const InitialCatData: CatCatalog = {
     description: 'The adorable cat of ngColombia\'s founder.',
     imgCredit: 'Juan Herrera. Twitter: @jdjuan',
     imgUrl: '/assets/photos/peludo.jpg'
+  },
+  4: {
+    name: 'Zimo',
+    breed: 'Mixed',
+    description: 'He\'s a mixed breed, but looks like Birman. His coloration is called Seal Point.',
+    imgCredit: 'Maya Carlyle.',
+    imgUrl: '/assets/photos/zimo.jpg'
   }
 };
