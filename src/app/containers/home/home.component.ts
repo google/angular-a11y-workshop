@@ -15,6 +15,8 @@
  */
 
 import { Component, OnInit } from '@angular/core';
+import {CatsService} from '../../services/cats.service';
+import {Cat} from '../../cat';
 
 @Component({
   selector: 'app-home',
@@ -22,10 +24,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  public randomCat: Cat;
+  constructor(private cats: CatsService) { }
 
   ngOnInit() {
+    this.cats.cats$.subscribe((cats) => {
+      const keys = Object.keys(cats);
+      const randomKey = keys.length * Math.random() << 0;
+      this.randomCat = cats[keys[randomKey]];
+    });
   }
 
 }
