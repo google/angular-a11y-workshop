@@ -50,7 +50,7 @@ nav ul li + li, .nested {
     display: inline-block;
   }
 
-  nav ul li + li { border: none;}
+  nav ul li + li, .nested { border: none;}
 
   .menu-button {display: none;}
 
@@ -70,7 +70,7 @@ nav ul li + li, .nested {
   }
 
   .nested > li {
-
+    padding: 0;
     margin: 1rem;
   }
 
