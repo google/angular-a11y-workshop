@@ -6,6 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 A 4 hour deep dive interactive workshop to give developers the tools they need to make their Angular applications more inclusive and accessible to those with a wide variety of disabilities.
 
+### How to use
+Open the [Accompanying slides](http://bit.ly/angular-a11y-workshop) and follow the directions when you reach each activity.
+
 ## Source Code Headers
 
 Every file containing source code must include copyright and license
