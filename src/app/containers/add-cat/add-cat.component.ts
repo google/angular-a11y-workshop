@@ -68,4 +68,19 @@ export class AddCatComponent implements OnInit {
     }
     return errorCount;
   }
+
+  // We need this method so that we can conditionally add the `aria-describedby`
+  // attribute if there's an input error.
+  getInputDescribedBy(inputName: string): string|null {
+    // We don't show errors until user attempts to fill out the form.
+    if (!this.isSubmitDirty) return null;
+    // If you have multiple validations on the input, you'll have to check each
+    // here.
+    if (this.catForm.controls[inputName].hasError('required')) {
+      return `${inputName}-error`;
+    }
+    // Returning null means the `aria-describedby` attribute wont be added
+    // to the element.
+    return null;
+  }
 }
