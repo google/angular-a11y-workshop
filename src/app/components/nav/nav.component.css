@@ -36,8 +36,12 @@ nav[aria-expanded="true"] {
   display: block;
 }
 
-nav ul li + li {
+nav ul li + li, .nested {
   border-top: solid 1px #311847;
+}
+
+.nested li {
+  padding-left: 1.5rem;
 }
 
 /* Desktop/Tablet styles */
