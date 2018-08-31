@@ -2,10 +2,6 @@
 <!--
   WAI-ARIA recommends several strategies for listing errors.
   See https://www.w3.org/WAI/tutorials/forms/notifications/#listing-errors
-
-  TODO:
-  - x/check for success/error - add this as item to fix in exercise to add x/check
-  - show errors inline
 -->
 <form [formGroup]="catForm" (ngSubmit)="onSubmit(catForm)">
   <div role="alert" *ngIf="getErrorCount() > 0 && isSubmitDirty">
