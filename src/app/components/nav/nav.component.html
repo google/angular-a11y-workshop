@@ -1,14 +1,19 @@
-<button aria-label="Open navigation" class="menu-button"
-        (click)="isNavShown = !isNavShown"
-        [attr.aria-expanded]="isNavShown">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-  </svg>
-</button>
 
+<nav aria-label="Mobile" class="mobile-nav">
+  <button aria-label="Open navigation" class="menu-button"
+          (click)="isNavShown = !isNavShown"
+          [attr.aria-expanded]="isNavShown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+    </svg>
+  </button>
+</nav>
 
-<span class="logo">Cat-alog</span>
+<header>
+  <span class="logo">Cat-alog</span>
+</header>
+
 
 <!-- Label site wide navigation with aria-label.
 Don't include "Navigation" or it will read "navigation" twice. -->
