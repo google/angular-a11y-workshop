@@ -1,8 +1,8 @@
 
 <ul class="cards">
-  <li *ngFor="let cat of catsArray" class="cards__item">
+  <li *ngFor="let cat of catsArray" class="cards__item" id="cat">
     <figure *ngIf="cat.imgUrl">
-      <img [src]="cat.imgUrl" alt="">
+      <img [src]="cat.imgUrl">
       <figcaption>Photo by {{cat.imgCredit}}</figcaption>
     </figure>
     <article class="cards__article">
