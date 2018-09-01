@@ -12,43 +12,36 @@
 
 <!-- Label site wide navigation with aria-label.
 Don't include "Navigation" or it will read "navigation" twice. -->
-
-<!--
-  TODO: Label the current page. For all `a` tags, bind `aria-describedby`
-  attribute when it's the current page. See the `getDescribedBy` method in
-  `nav.component.ts`
--->
 <nav [attr.aria-expanded]="isNavShown" aria-label="Site">
   <ul class="main-level">
     <li aria-level="1">
       <a routerLink="/home" class="nav-item"
-         #home>Home</a>
+         [attr.aria-describedby]="getDescribedBy(home)" #home>Home</a>
     </li>
     <li aria-level="1">
-      <!-- TODO: Bind aria-expanded attribute to `isCatalogShown` so that it
-           evaluates to `true` when when the menu is visible. -->
       <button
         (click)="isCatalogShown = !isCatalogShown"
+        [attr.aria-expanded]="isCatalogShown"
         aria-controls="catalog-nested-nav"
         class="nav-item">Cats</button>
       <ul class="nested" [hidden]="!isCatalogShown" id="catalog-nested-nav">
         <li aria-level="2">
           <a routerLink="/catalog/browse" class="nav-item"
-             #browse>Browse</a>
+             [attr.aria-describedby]="getDescribedBy(browse)" #browse>Browse</a>
         </li>
         <li aria-level="2">
           <a routerLink="/catalog/search" class="nav-item"
-             #search>Search</a>
+             [attr.aria-describedby]="getDescribedBy(search)" #search>Search</a>
         </li>
         <li aria-level="2">
           <a routerLink="/catalog/add" class="nav-item"
-             #add>Add</a>
+             [attr.aria-describedby]="getDescribedBy(add)" #add>Add</a>
         </li>
       </ul>
     </li>
     <li aria-level="1">
       <a routerLink="/about" class="nav-item"
-         #about>About</a>
+         [attr.aria-describedby]="getDescribedBy(about)" #about>About</a>
     </li>
   </ul>
   <div id="current-page" style="display: none;">Current page</div>
