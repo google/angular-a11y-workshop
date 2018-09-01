@@ -2,9 +2,9 @@
   We use aria-live to indicate to the screen reader that this body of content changes.
   On Android Talkback, the navigation is no longer focusable on subsequent changes without this aria tag. See #4
 -->
-<header aria-live="off">
+<div class="header" aria-live="off">
   <app-nav></app-nav>
-</header>
+</div>
 <!--
   We use tabindex="-1" so that we can move keyboard focus to the element when routing to a new page.
   We use aria-label so that it will speak the title of the page to a screen reader user.

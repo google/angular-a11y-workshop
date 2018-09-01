@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
-import {Component, OnInit, HostListener, ElementRef} from '@angular/core';
+import {
+  Component, OnInit, HostListener, Inject
+} from '@angular/core';
 import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import {map, filter} from 'rxjs/internal/operators';
+import {DOCUMENT} from '@angular/common';
 
 const BREAKPOINT = 600;
 
@@ -31,7 +34,8 @@ export class NavComponent implements OnInit {
   private activeUrl = '';
   private isSmallViewport = true;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute,
+              @Inject(DOCUMENT) private document: any) { }
 
   ngOnInit() {
     this.router.events
@@ -52,12 +56,17 @@ export class NavComponent implements OnInit {
         // Close the catalog sub-menu.
         this.isCatalogShown = false;
       });
+    this.setNavShown(this.document.body.clientWidth);
   }
 
   @HostListener('window:resize', ['$event'])
   onWindowResize(event) {
+    this.setNavShown(event.target.innerWidth);
+  }
+
+  private setNavShown(width: number) {
     // Force navigation to always be accessible on larger viewports.
-    if (event.target.innerWidth >= BREAKPOINT) {
+    if (width >= BREAKPOINT) {
       this.isSmallViewport = false;
       this.isNavShown = true;
     } else {
