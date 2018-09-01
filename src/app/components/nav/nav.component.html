@@ -19,13 +19,11 @@ Don't include "Navigation" or it will read "navigation" twice. -->
          [attr.aria-describedby]="getDescribedBy(home)" #home>Home</a>
     </li>
     <li aria-level="1">
-      <!-- TODO: Change this element to a `button` element. -->
-      <!-- TODO: BONUS: Can you keep it as a `span` but still make it accessible? -->
-      <span
+      <button
         (click)="isCatalogShown = !isCatalogShown"
         [attr.aria-expanded]="isCatalogShown"
         aria-controls="catalog-nested-nav"
-        class="nav-item">Cats</span>
+        class="nav-item">Cats</button>
       <ul class="nested" [hidden]="!isCatalogShown" id="catalog-nested-nav">
         <li aria-level="2">
           <a routerLink="/catalog/browse" class="nav-item"
