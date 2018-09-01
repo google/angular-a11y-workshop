@@ -26,6 +26,8 @@
   padding: .7rem 1rem;
   display: block;
   text-decoration: none;
+  /* TODO: Remove the `outline: none` property or set a custom designed one. */
+  outline: none;
 }
 
 nav {
