@@ -48,7 +48,8 @@ export class AppComponent implements OnInit {
         // We don't want to trigger focus if it's the first page load. Users
         // expect keyboard focus to begin at the top of the page.
         if (!isFirstRoute) {
-          this.mainEl.nativeElement.focus();
+          // TODO: Trigger focus on the `main` element when navigating to a new page.
+
         }
         isFirstRoute = false;
       });

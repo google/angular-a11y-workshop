@@ -4,7 +4,9 @@
   See https://www.w3.org/WAI/tutorials/forms/notifications/#listing-errors
 -->
 <form [formGroup]="catForm" (ngSubmit)="onSubmit(catForm)">
-  <div role="alert" *ngIf="getErrorCount() > 0 && isSubmitDirty">
+
+  <!-- TODO: Add `role="alert"` to this div so it is spoken aloud when errors are triggered. -->
+  <div *ngIf="getErrorCount() > 0 && isSubmitDirty">
     <h3>There are {{getErrorCount()}} errors in this form</h3>
     <ul>
       <li *ngIf="catForm.controls['name'].hasError('required')">
@@ -24,37 +26,38 @@
       </li>
     </ul>
   </div>
+
+  <!-- TODO: Give all inputs a `label` -->
+  <!-- TODO: add `required` attribute to name, breed, and description inputs -->
+  <!-- TODO: add `aria-invalid="true"` if there's a validation error for name, breed, and description inputs. -->
   <ul>
     <li>
-      <label for="name">Cat Name</label><br>
+      Cat Name<br>
       <input type="text" placeholder="Whiskers"
-             formControlName="name" id="name" required
-             [attr.aria-describedby]="getInputDescribedBy('name')"
-             [attr.aria-invalid]="catForm.controls['name'].hasError('required')">
+             formControlName="name" id="name"
+             [attr.aria-describedby]="getInputDescribedBy('name')">
     </li>
     <li>
-      <label for="breed">Cat Breed</label><br>
+      Cat Breed<br>
       <input type="text" placeholder="Persian Cat"
-             formControlName="breed" id="breed" required
-             [attr.aria-describedby]="getInputDescribedBy('breed')"
-             [attr.aria-invalid]="catForm.controls['breed'].hasError('required')">
+             formControlName="breed" id="breed"
+             [attr.aria-describedby]="getInputDescribedBy('breed')">
     </li>
     <li>
-      <label for="img-url">URL to a picture of your cat</label><br>
+      URL to a picture of your cat<br>
       <input type="url" placeholder="http://foo.bar/bat.jpg"
              formControlName="imgUrl" id="img-url">
     </li>
     <li>
-      <label for="img-credit">Attribution</label><br>
+      Attribution<br>
       <textarea placeholder="Miško Hevery, Twitter: @mhevery"
                 formControlName="imgCredit" id="img-credit"></textarea>
     </li>
     <li>
-      <label for="description">Description</label><br>
+      Description<br>
       <textarea placeholder="She's soft and sweet"
-                formControlName="description" id="description" required
-                [attr.aria-describedby]="getInputDescribedBy('description')"
-                [attr.aria-invalid]="catForm.controls['description'].hasError('required')"></textarea>
+                formControlName="description" id="description"
+                [attr.aria-describedby]="getInputDescribedBy('description')"></textarea>
     </li>
   </ul>
 

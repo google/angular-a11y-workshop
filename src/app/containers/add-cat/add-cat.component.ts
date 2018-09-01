@@ -41,6 +41,7 @@ export class AddCatComponent implements OnInit {
     });
   }
 
+  // TODO: Navigate to `'/catalog/add-success'` if the form is valid.
   onSubmit(form: FormGroup) {
     this.isSubmitDirty = true;
     if (form.valid) {
@@ -51,7 +52,6 @@ export class AddCatComponent implements OnInit {
         imgCredit: form.value.imgCredit,
         description: form.value.description
       });
-      this.router.navigate(['/catalog/add-success']);
     }
   }
 
