@@ -1,4 +1,9 @@
 /* Color palette https://coolors.co/75f4f4-ff5b5e-ec4067-a01a7d-311847 */
+header,
+.mobile-nav {
+  display: inline-block;
+}
+
 .main-level,
 .nested {
   list-style: none;
@@ -28,6 +33,12 @@
   text-decoration: none;
 }
 
+.nav-item.active {
+  background-color: #75f4f4;
+  color: #311847;
+  font-weight: bold;
+}
+
 nav {
   display: none;
 }
@@ -40,7 +51,7 @@ nav ul li + li, .nested {
   border-top: solid 1px #311847;
 }
 
-.nested li {
+.nested a {
   padding-left: 1.5rem;
 }
 
@@ -52,7 +63,7 @@ nav ul li + li, .nested {
 
   nav ul li + li, .nested { border: none;}
 
-  .menu-button {display: none;}
+  .mobile-nav {display: none;}
 
   .main-level > li {
     display: inline-block;
@@ -68,10 +79,10 @@ nav ul li + li, .nested {
     top: 3rem;
     background-color: #a01a7d;
   }
+  .nested a { padding: 1rem; }
 
   .nested > li {
     padding: 0;
-    margin: 1rem;
   }
 
 }
