@@ -1,14 +1,19 @@
-<button aria-label="Open navigation" class="menu-button"
-        (click)="isNavShown = !isNavShown"
-        [attr.aria-expanded]="isNavShown">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-  </svg>
-</button>
 
+<nav aria-label="Mobile" class="mobile-nav">
+  <button aria-label="Open navigation" class="menu-button"
+          (click)="isNavShown = !isNavShown"
+          [attr.aria-expanded]="isNavShown">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+    </svg>
+  </button>
+</nav>
 
-<span class="logo">Cat-alog</span>
+<header>
+  <span class="logo">Cat-alog</span>
+</header>
+
 
 <!-- Label site wide navigation with aria-label.
 Don't include "Navigation" or it will read "navigation" twice. -->
@@ -21,7 +26,7 @@ Don't include "Navigation" or it will read "navigation" twice. -->
 <nav [attr.aria-expanded]="isNavShown" aria-label="Site">
   <ul class="main-level">
     <li aria-level="1">
-      <a routerLink="/home" class="nav-item"
+      <a routerLink="/home" class="nav-item" routerLinkActive="active"
          #home>Home</a>
     </li>
     <li aria-level="1">
@@ -31,21 +36,21 @@ Don't include "Navigation" or it will read "navigation" twice. -->
         class="nav-item">Cats</span>
       <ul class="nested" [hidden]="!isCatalogShown" id="catalog-nested-nav">
         <li aria-level="2">
-          <a routerLink="/catalog/browse" class="nav-item"
+          <a routerLink="/catalog/browse" class="nav-item" routerLinkActive="active"
              #browse>Browse</a>
         </li>
         <li aria-level="2">
-          <a routerLink="/catalog/search" class="nav-item"
+          <a routerLink="/catalog/search" class="nav-item" routerLinkActive="active"
              #search>Search</a>
         </li>
         <li aria-level="2">
-          <a routerLink="/catalog/add" class="nav-item"
+          <a routerLink="/catalog/add" class="nav-item" routerLinkActive="active"
              #add>Add</a>
         </li>
       </ul>
     </li>
     <li aria-level="1">
-      <a routerLink="/about" class="nav-item"
+      <a routerLink="/about" class="nav-item" routerLinkActive="active"
          #about>About</a>
     </li>
   </ul>
