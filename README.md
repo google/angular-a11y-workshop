@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
+## Project archived
+
+This repository is no longer maintained and is being archived. You may still use it for reference or fork but make sure to update the dependencies to apply necessary security updates.
+
 ## About
 
 A 4 hour deep dive interactive workshop to give developers the tools they need to make their Angular applications more inclusive and accessible to those with a wide variety of disabilities.
